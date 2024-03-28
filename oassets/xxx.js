@@ -1,54 +1,54 @@
-function over() {
-    var overlay = document.getElementById("overlay");
+function toggleOverlay() {
+  const overlay = document.getElementById("overlay");
+  if (overlay.style.display === "block") {
     overlay.style.display = "none";
-    musi();
-    pv();
+  } else {
+    overlay.style.display = "block";
+    document.body.style.overflow = "hidden";
+  }
+}
+
+function playMedia(elementId) {
+  const mediaElement = document.getElementById(elementId);
+  if (mediaElement.paused) {
+    mediaElement.play();
+  } else {
+    mediaElement.pause();
+    mediaElement.currentTime = 0;
+  }
 }
 
 function musi() {
-    var audio = document.getElementById("bg");
-    audio.play();
+  playMedia("bg");
 }
 
 function pv() {
-    var video = document.getElementById("mv");
-    video.play();
+  playMedia("mv");
 }
 
-const titles = ["zay", "@N3TFL1X", "SW4G",]; 
+const titles = ["zay", "@N3TFL1X", "SW4G"];
 let index = 0;
 
 function change() {
-    document.title = titles[index];
-    index = (index + 1) % titles.length;
+  document.title = titles[index];
+  index = (index + 1) % titles.length;
 }
 
-setInterval(change, 100);
+setInterval(change, 1000);
 
-const body = document.getElementsByTagName('body')[0];
+const body = document.getElementsByTagName("body")[0];
+const metaViewport = document.querySelector("meta[name=viewport]");
 
 window.addEventListener("keydown", (event) => {
   if (event.ctrlKey && (event.key === "S" || event.key === "s")) {
     event.preventDefault();
-    window.location.href = "https://x7zscare.netlify.app/";
+    window.location.reload();
   }
 
   if (event.ctrlKey && (event.key === "C")) {
     event.preventDefault();
-    window.location.href = "https://x7zscare.netlify.app/";
+    window.location.reload();
   }
 
   if (event.ctrlKey && (event.key === "E" || event.key === "e")) {
-    event.preventDefault();
-    window.location.href = "https://x7zscare.netlify.app/";
-  }
-
-  if (event.ctrlKey && (event.key === "U" || event.key === "u")) {
-    event.preventDefault();
-    window.location.href = "https://x7zscare.netlify.app/";
-  }
-});
-
-document.addEventListener('contextmenu', function (e) {
-  e.preventDefault();
-});
+    event.preventDefault
